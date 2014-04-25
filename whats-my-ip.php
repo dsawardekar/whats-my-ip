@@ -13,5 +13,5 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 use PressingMatters\WhatsMyIpPlugin;
 
-$whats_my_ip_plugin = new WhatsMyIpPlugin(__FILE__);
+$whats_my_ip_plugin = WhatsMyIpPlugin::create(__FILE__);
 $whats_my_ip_plugin->enable();
