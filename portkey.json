@@ -1,0 +1,10 @@
+{
+  "lib/PressingMatters/*.php": {
+    "type": "library",
+    "test": "test/PressingMatters/%sTest.php"
+  },
+  "test/PressingMatters/*Test.php": {
+    "type": "test",
+    "alternate": "lib/PressingMatters/%s.php"
+  }
+}
