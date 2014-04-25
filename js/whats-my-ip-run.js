@@ -1,5 +1,9 @@
-$(document).ready(function() {
-  $(document).whatsmyip();
-});
+(function($) {
+
+  $(document).ready(function() {
+    $(document).whatsmyip();
+  });
+
+}(jQuery));
 
 
