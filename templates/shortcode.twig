@@ -1,5 +1,13 @@
 <div class="whats-my-ip">
-  <p class="ip"></p>
-  <p class="country"></p>
-  <p class="coords"></p>
+  {% if ip %}
+    <p class="ip"></p>
+  {% endif %}
+
+  {% if country %}
+    <p class="country"></p>
+  {% endif %}
+
+  {% if coords %}
+    <p class="coords"></p>
+  {% endif %}
 </div>
