@@ -3,9 +3,158 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ad617f5b78b58af078c2063ab9c411ea",
+    "hash": "98fd6a13d9eac6f54826e788b3f4784a",
     "packages": [
-
+        {
+            "name": "dsawardekar/encase-php",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dsawardekar/encase-php.git",
+                "reference": "b235c63a51c5cb7001c74b4c714a81a5e6c66bb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dsawardekar/encase-php/zipball/b235c63a51c5cb7001c74b4c714a81a5e6c66bb3",
+                "reference": "b235c63a51c5cb7001c74b4c714a81a5e6c66bb3",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Encase\\": "src/Encase"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Darshan Sawardekar",
+                    "email": "darshan@sawardekar.org",
+                    "homepage": "http://pressing-matters.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Lightweight IOC container for PHP",
+            "homepage": "http://github.com/dsawardekar/encase-php",
+            "keywords": [
+                "container",
+                "dependency injection",
+                "ioc"
+            ],
+            "time": "2014-03-21 15:22:09"
+        },
+        {
+            "name": "dsawardekar/wordpress-twig-helper",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dsawardekar/wordpress-twig-helper.git",
+                "reference": "30ccbfbb12bb3f22ef7ca964172e8844027e53bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dsawardekar/wordpress-twig-helper/zipball/30ccbfbb12bb3f22ef7ca964172e8844027e53bb",
+                "reference": "30ccbfbb12bb3f22ef7ca964172e8844027e53bb",
+                "shasum": ""
+            },
+            "require": {
+                "twig/twig": "~1.15.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0"
+            },
+            "bin": [
+                "wordpress-twig-helper/bin/twig_compile"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WordPress\\": "lib/WordPress"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Darshan Sawardekar",
+                    "email": "darshan@sawardekar.org",
+                    "homepage": "http://pressing-matters.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Helpers for using Twig with WordPress",
+            "homepage": "http://github.com/dsawardekar/wordpress-twig-helper",
+            "keywords": [
+                "twig",
+                "wordpress"
+            ],
+            "time": "2014-04-24 14:34:05"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.15.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/Twig.git",
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.15-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2014-02-13 10:19:29"
+        }
     ],
     "packages-dev": [
         {
