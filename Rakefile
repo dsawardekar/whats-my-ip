@@ -1,3 +1,6 @@
+version     = ENV['VERSION']
+destination = "tmp/dist/#{version}"
+
 namespace :git do
   desc "Update .gitignore"
   task :ignore do
@@ -35,6 +38,16 @@ namespace :git do
   # todo: conditionally add js libs
   task :js do
   end
+
+  task :archive do
+    sh "rm -rf #{destination}" if File.directory?(destination)
+    mkdir_p destination
+    sh "git archive dist-#{version} --format tar | (cd tmp/dist/#{version} && tar xf -)"
+  end
+
+  task :branch do
+    sh "git checkout -b dist-#{version}"
+  end
 end
 
 namespace :bower do
@@ -64,8 +77,41 @@ namespace :composer do
   end
 end
 
+namespace :svn do
+  desc "Copy files to svn trunk"
+  task :copy do
+    sh "rsync -av tmp/dist/#{version}/ ../svn/trunk --exclude=.gitignore"
+  end
+
+  desc "Add changed files to svn"
+  task :add do
+    Dir.chdir('../svn') do
+      sh "svn add . --force"
+    end
+  end
+
+  desc "Commit changed files to svn"
+  task :commit do
+    Dir.chdir('../svn/trunk') do
+      sh "svn commit -m 'Release #{version}'"
+    end
+  end
+
+  desc "Create release tag"
+  task :tag do
+    Dir.chdir('../svn') do
+      repo  = "http://plugins.svn.wordpress.org/whats-my-ip"
+      trunk = "#{repo}/trunk"
+      tag   = "#{repo}/tags/#{version}"
+
+      sh "svn copy #{trunk} #{tag} -m 'Release Tag: #{version}'"
+    end
+  end
+end
+
 desc 'Create a new Distribution'
 task :dist => [
+  'git:branch',
   'composer:update',
   'git:clean',
   'git:ignore',
@@ -77,4 +123,13 @@ desc 'Initialize - after distribution'
 task :init => [
   'composer:update',
   'bower:update'
+]
+
+desc 'Publish to wordpress.org'
+task :publish => [
+  'git:archive',
+  'svn:copy',
+  'svn:add',
+  'svn:commit',
+  'svn:tag'
 ]
