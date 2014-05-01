@@ -1,0 +1,6 @@
+*.swp
+*.swo
+build
+vendor/*
+dist/*
+!dist/.gitadd
