@@ -45,8 +45,16 @@ namespace :git do
     sh "git archive dist-#{version} --format tar | (cd tmp/dist/#{version} && tar xf -)"
   end
 
-  task :branch do
+  task :dist_branch do
     sh "git checkout -b dist-#{version}"
+  end
+
+  task :dev_branch do
+    sh "git checkout develop"
+  end
+
+  task :dist_publish do
+    sh "git push origin dist-#{version}"
   end
 end
 
@@ -111,12 +119,14 @@ end
 
 desc 'Create a new Distribution'
 task :dist => [
-  'git:branch',
+  'git:dist_branch',
   'composer:update',
   'git:clean',
   'git:ignore',
   'git:vendor',
-  'git:clear_after'
+  'git:clear_after',
+  'git:dist_publish',
+  'git:dev_branch'
 ]
 
 desc 'Initialize - after distribution'
