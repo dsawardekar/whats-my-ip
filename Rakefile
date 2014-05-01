@@ -1,3 +1,4 @@
+plugin_slug = "whats-my-ip"
 version     = ENV['VERSION']
 destination = "tmp/dist/#{version}"
 
@@ -79,7 +80,7 @@ namespace :composer do
     # todo: use porcelain if this isn't good enough
     changed = `git status`
     if !changed.include?('working directory clean')
-      sh 'git add composer.json composer.lock'
+      sh 'git add composer.lock'
       sh 'git commit -m "Fresh composer update"'
     end
   end
@@ -88,7 +89,7 @@ end
 namespace :svn do
   desc "Copy files to svn trunk"
   task :copy do
-    sh "rsync -av tmp/dist/#{version}/ ../svn/trunk --exclude=.gitignore"
+    sh "rsync -a tmp/dist/#{version}/ ../svn/trunk --exclude=.gitignore"
   end
 
   desc "Add changed files to svn"
@@ -108,7 +109,7 @@ namespace :svn do
   desc "Create release tag"
   task :tag do
     Dir.chdir('../svn') do
-      repo  = "http://plugins.svn.wordpress.org/whats-my-ip"
+      repo  = "http://plugins.svn.wordpress.org/#{plugin_slug}"
       trunk = "#{repo}/trunk"
       tag   = "#{repo}/tags/#{version}"
 
@@ -134,12 +135,6 @@ task :dist => [
   'git:dev_branch'
 ]
 
-desc 'Initialize - after distribution'
-task :init => [
-  'composer:update',
-  'bower:update'
-]
-
 desc 'Publish to wordpress.org'
 task :publish => [
   'dist',
@@ -149,3 +144,10 @@ task :publish => [
   'svn:commit',
   'svn:tag'
 ]
+
+desc 'Initialize - after distribution'
+task :init => [
+  'composer:update',
+  'bower:update'
+]
+

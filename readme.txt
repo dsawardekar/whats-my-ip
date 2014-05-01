@@ -4,7 +4,7 @@ Donate link: http://pressing-matters.io/
 Tags: ip, geoip
 Requires at least: 3.5.0
 Tested up to: 3.9
-Stable tag: 0.1.4
+Stable tag: 0.1.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,11 @@ provided by [Telize](http://www.telize.com).
 * Initial Release
 
 == Changelog ==
+
+= 0.1.5 =
+
+* Updates Composer
+* Publish Script for Git to SVN sync.
 
 = 0.1.0 =
 * Initial Release
