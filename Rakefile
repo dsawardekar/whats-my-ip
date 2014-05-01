@@ -117,8 +117,13 @@ namespace :svn do
   end
 end
 
+task :dist_check do
+  fail "Version not specified" if version.nil?
+end
+
 desc 'Create a new Distribution'
 task :dist => [
+  'dist_check',
   'git:dist_branch',
   'composer:update',
   'git:clean',
@@ -137,6 +142,7 @@ task :init => [
 
 desc 'Publish to wordpress.org'
 task :publish => [
+  'dist',
   'git:archive',
   'svn:copy',
   'svn:add',
