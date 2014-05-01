@@ -7,16 +7,16 @@
     "packages": [
         {
             "name": "dsawardekar/encase-php",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dsawardekar/encase-php.git",
-                "reference": "b235c63a51c5cb7001c74b4c714a81a5e6c66bb3"
+                "reference": "4208bf2632230e72a11c98f29e34df24f7b9ca63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dsawardekar/encase-php/zipball/b235c63a51c5cb7001c74b4c714a81a5e6c66bb3",
-                "reference": "b235c63a51c5cb7001c74b4c714a81a5e6c66bb3",
+                "url": "https://api.github.com/repos/dsawardekar/encase-php/zipball/4208bf2632230e72a11c98f29e34df24f7b9ca63",
+                "reference": "4208bf2632230e72a11c98f29e34df24f7b9ca63",
                 "shasum": ""
             },
             "require-dev": {
@@ -47,7 +47,7 @@
                 "dependency injection",
                 "ioc"
             ],
-            "time": "2014-03-21 15:22:09"
+            "time": "2014-05-01 16:19:03"
         },
         {
             "name": "dsawardekar/wordpress-twig-helper",
