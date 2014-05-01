@@ -106,6 +106,17 @@ namespace :svn do
     end
   end
 
+  desc "Create release branch"
+  task :branch do
+    Dir.chdir('../svn') do
+      repo  = "http://plugins.svn.wordpress.org/#{plugin_slug}"
+      trunk = "#{repo}/trunk"
+      tag   = "#{repo}/branches/#{version}"
+
+      sh "svn copy #{trunk} #{tag} -m 'Release Branch: #{version}'"
+    end
+  end
+
   desc "Create release tag"
   task :tag do
     Dir.chdir('../svn') do
@@ -142,6 +153,7 @@ task :publish => [
   'svn:copy',
   'svn:add',
   'svn:commit',
+  'svn:branch',
   'svn:tag'
 ]
 
