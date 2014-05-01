@@ -142,6 +142,7 @@ task :init => [
 
 desc 'Publish to wordpress.org'
 task :publish => [
+  'dist',
   'git:archive',
   'svn:copy',
   'svn:add',
