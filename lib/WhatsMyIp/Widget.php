@@ -1,10 +1,8 @@
 <?php
 
-namespace PressingMatters;
+namespace WhatsMyIp;
 
-use PressingMatters\WhatsMyIpPlugin;
-
-class WhatsMyIpWidget extends \WP_Widget {
+class Widget extends \WP_Widget {
 
   public $twigHelper;
   public $defaults = array(
@@ -105,7 +103,7 @@ class WhatsMyIpWidget extends \WP_Widget {
   }
 
   function getContainer() {
-    return WhatsMyIpPlugin::instance()->container;
+    return Plugin::getInstance()->container;
   }
 
   function inject() {
