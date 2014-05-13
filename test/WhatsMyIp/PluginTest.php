@@ -38,7 +38,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase {
     $html = $this->plugin->doShortcode($params);
 
     $matcher = array(
-      'tag' => 'p',
+      'tag' => 'span',
       'attributes' => array('class' => 'ip')
     );
 

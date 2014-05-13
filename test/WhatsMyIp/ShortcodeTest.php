@@ -69,7 +69,7 @@ class ShortcodeTest extends \PHPUnit_Framework_TestCase {
 
   function getMatcherFor($name) {
     $matcher = array(
-      'tag' => 'p',
+      'tag' => 'span',
       'attributes' => array('class' => $name)
     );
 
