@@ -5,6 +5,7 @@ namespace WhatsMyIp;
 class ScriptPlacer {
 
   public $enabled = false;
+  public $scriptLoader;
 
   function needs() {
     return array('scriptLoader');
