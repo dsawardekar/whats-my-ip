@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6148d544b0135ede283f8f200f05bb5e",
+    "hash": "fc7b7d7b35e4c3460e0ecd78510104cb",
     "packages": [
         {
             "name": "dsawardekar/arrow",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dsawardekar/arrow.git",
-                "reference": "b13599d59b77453cc65d7d25ab2d8381f63b68b5"
+                "reference": "169c71a3ab84ca17d43cee44d0eb24327bb755dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dsawardekar/arrow/zipball/b13599d59b77453cc65d7d25ab2d8381f63b68b5",
-                "reference": "b13599d59b77453cc65d7d25ab2d8381f63b68b5",
+                "url": "https://api.github.com/repos/dsawardekar/arrow/zipball/169c71a3ab84ca17d43cee44d0eb24327bb755dd",
+                "reference": "169c71a3ab84ca17d43cee44d0eb24327bb755dd",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 "wordpress",
                 "wordpress plugins"
             ],
-            "time": "2014-05-13 12:52:46"
+            "time": "2014-05-13 13:28:08"
         },
         {
             "name": "dsawardekar/encase-php",
