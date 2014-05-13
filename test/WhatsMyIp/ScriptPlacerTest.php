@@ -1,8 +1,10 @@
 <?php
 
-namespace PressingMatters;
+namespace WhatsMyIp;
 
 use Encase\Container;
+use Arrow\AssetManager\AssetManager;
+use Arrow\PluginMeta;
 
 class ScriptPlacerTest extends \PHPUnit_Framework_TestCase {
 
@@ -11,64 +13,35 @@ class ScriptPlacerTest extends \PHPUnit_Framework_TestCase {
 
   function setUp() {
     $this->container = new Container();
-    $this->container->singleton('placer', 'PressingMatters\\ScriptPlacer');
-    $this->container->object('baseDir', getcwd());
+    $this->container->object('pluginMeta', new PluginMeta('foo.php'));
+    $this->container->object('assetManager', new AssetManager($this->container));
+    $this->container->singleton('scriptPlacer', 'WhatsMyIp\ScriptPlacer');
 
-    $this->placer = $this->container->lookup('placer');
+    $this->placer = $this->container->lookup('scriptPlacer');
   }
 
-  function test_it_has_a_base_dir() {
-    $this->assertEquals(getcwd(), $this->placer->baseDir);
-  }
-
-  function test_it_can_build_plugin_file_from_base_dir() {
-    $file = $this->placer->getPluginFile();
-    $this->assertStringStartsWith(getcwd(), $file);
-  }
-
-  function test_it_can_build_url_for_script() {
-    $name = 'whats-my-ip';
-    $url = $this->placer->urlFor($name);
-    $expected = "/js\/" . $name . '.js$/';
-
-    $this->assertRegExp($expected, $url);
-  }
-
-  function test_it_can_register_script_without_dependencies() {
-    $this->placer->registerScript('whats-my-ip');
-    $actual = wp_script_is('whats-my-ip', 'registered');
-
-    $this->assertTrue($actual);
-  }
-
-  function test_it_can_register_script_with_dependencies() {
-    $this->placer->registerScript('foo');
-    $this->placer->registerScript('bar', array('foo'));
-    $actual = wp_script_is('bar', 'registered');
-
-    $this->assertTrue($actual);
-  }
-
-  function test_it_can_register_multiple_scripts() {
-    $scripts = array(
-      'foo' => null,
-      'bar' => 'foo'
+  function test_it_has_a_script_loader() {
+    $this->assertEquals(
+      $this->container->lookup('scriptLoader'),
+      $this->placer->scriptLoader
     );
-
-    $this->placer->registerScripts($scripts);
-
-    $this->assertTrue(wp_script_is('foo', 'registered'));
-    $this->assertTrue(wp_script_is('bar', 'registered'));
   }
 
-  function test_it_can_register_default_scripts() {
-    $this->placer->register();
-    $this->assertTrue(wp_script_is('whats-my-ip', 'registered'));
+  function test_it_is_not_enabled_initially() {
+    $this->assertFalse($this->placer->enabled);
   }
 
-  function test_it_can_enable_scripts() {
+  function test_it_can_be_enabled() {
     $this->placer->enable();
-    $this->assertTrue(wp_script_is('whats-my-ip', 'enqueued'));
+    $this->assertTrue($this->placer->enabled);
   }
 
+  function test_it_can_enqueue_scripts() {
+    $this->placer->enable();
+
+    do_action('wp_enqueue_scripts');
+
+    $this->assertTrue(wp_script_is('whats-my-ip', 'enqueued'));
+    $this->assertTrue(wp_script_is('whats-my-ip-options', 'enqueued'));
+  }
 }

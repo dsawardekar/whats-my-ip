@@ -1,11 +1,11 @@
 <?php
 
-namespace PressingMatters;
+namespace WhatsMyIp;
 
 use Encase\Container;
-use WordPress\TwigHelper;
+use Arrow\TwigHelper\TwigHelper;
 
-class WhatsMyIpShortcodeTest extends \PHPUnit_Framework_TestCase {
+class ShortcodeTest extends \PHPUnit_Framework_TestCase {
 
   public $shortcode;
   public $container;
@@ -13,8 +13,8 @@ class WhatsMyIpShortcodeTest extends \PHPUnit_Framework_TestCase {
 
   function setUp() {
     $container = new Container();
-    $container->singleton('twigHelper', 'WordPress\\TwigHelper');
-    $container->singleton('shortcode', 'PressingMatters\\WhatsMyIpShortcode');
+    $container->singleton('twigHelper', 'Arrow\TwigHelper\TwigHelper');
+    $container->singleton('shortcode', 'WhatsMyIp\Shortcode');
 
     $this->container  = $container;
     $this->shortcode  = $container->lookup('shortcode');
@@ -25,7 +25,7 @@ class WhatsMyIpShortcodeTest extends \PHPUnit_Framework_TestCase {
 
   function test_it_has_a_twig_helper() {
     $helper = $this->shortcode->twigHelper;
-    $this->assertInstanceOf('WordPress\\TwigHelper', $helper);
+    $this->assertInstanceOf('Arrow\TwigHelper\TwigHelper', $helper);
   }
 
   function test_it_can_convert_string_key_to_boolean() {

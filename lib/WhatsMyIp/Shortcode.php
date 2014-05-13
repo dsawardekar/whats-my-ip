@@ -1,8 +1,8 @@
 <?php
 
-namespace PressingMatters;
+namespace WhatsMyIp;
 
-class WhatsMyIpShortcode {
+class Shortcode {
 
   public $twigHelper;
 
