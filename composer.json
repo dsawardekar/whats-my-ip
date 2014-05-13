@@ -4,11 +4,11 @@
   },
   "require": {
     "dsawardekar/encase-php": "~0.1.0",
-    "dsawardekar/wordpress-twig-helper": "~0.1.1"
+    "dsawardekar/arrow": "~0.1.0"
   },
   "autoload": {
     "psr-4": {
-      "PressingMatters\\": "lib/PressingMatters"
+      "WhatsMyIp\\": "lib/WhatsMyIp"
     }
   }
 }

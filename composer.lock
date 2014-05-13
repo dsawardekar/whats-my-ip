@@ -3,8 +3,57 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cc155c8c6ad6f729f01748e387367dc7",
+    "hash": "6148d544b0135ede283f8f200f05bb5e",
     "packages": [
+        {
+            "name": "dsawardekar/arrow",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dsawardekar/arrow.git",
+                "reference": "b13599d59b77453cc65d7d25ab2d8381f63b68b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dsawardekar/arrow/zipball/b13599d59b77453cc65d7d25ab2d8381f63b68b5",
+                "reference": "b13599d59b77453cc65d7d25ab2d8381f63b68b5",
+                "shasum": ""
+            },
+            "require": {
+                "dsawardekar/encase-php": "~0.1.0",
+                "twig/twig": "~1.15.0",
+                "vlucas/valitron": "~1.1.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arrow\\": "lib/Arrow"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Darshan Sawardekar",
+                    "email": "darshan@sawardekar.org",
+                    "homepage": "http://pressing-matters.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "WordPress Plugin Development Library",
+            "homepage": "http://github.com/dsawardekar/arrow",
+            "keywords": [
+                "library",
+                "wordpress",
+                "wordpress plugins"
+            ],
+            "time": "2014-05-13 12:52:46"
+        },
         {
             "name": "dsawardekar/encase-php",
             "version": "0.1.3",
@@ -48,55 +97,6 @@
                 "ioc"
             ],
             "time": "2014-05-01 16:19:03"
-        },
-        {
-            "name": "dsawardekar/wordpress-twig-helper",
-            "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dsawardekar/wordpress-twig-helper.git",
-                "reference": "30ccbfbb12bb3f22ef7ca964172e8844027e53bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dsawardekar/wordpress-twig-helper/zipball/30ccbfbb12bb3f22ef7ca964172e8844027e53bb",
-                "reference": "30ccbfbb12bb3f22ef7ca964172e8844027e53bb",
-                "shasum": ""
-            },
-            "require": {
-                "twig/twig": "~1.15.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~3.7.0"
-            },
-            "bin": [
-                "wordpress-twig-helper/bin/twig_compile"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WordPress\\": "lib/WordPress"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Darshan Sawardekar",
-                    "email": "darshan@sawardekar.org",
-                    "homepage": "http://pressing-matters.io",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Helpers for using Twig with WordPress",
-            "homepage": "http://github.com/dsawardekar/wordpress-twig-helper",
-            "keywords": [
-                "twig",
-                "wordpress"
-            ],
-            "time": "2014-04-24 14:34:05"
         },
         {
             "name": "twig/twig",
@@ -154,6 +154,50 @@
                 "templating"
             ],
             "time": "2014-02-13 10:19:29"
+        },
+        {
+            "name": "vlucas/valitron",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/valitron.git",
+                "reference": "63695ad7d1d9c98f5ae67b535567006c8d1bba01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/valitron/zipball/63695ad7d1d9c98f5ae67b535567006c8d1bba01",
+                "reference": "63695ad7d1d9c98f5ae67b535567006c8d1bba01",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Valitron": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple, elegant, stand-alone validation library with NO dependencies",
+            "homepage": "http://github.com/vlucas/valitron",
+            "keywords": [
+                "valid",
+                "validation",
+                "validator"
+            ],
+            "time": "2013-11-11 21:11:45"
         }
     ],
     "packages-dev": [
