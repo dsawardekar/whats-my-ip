@@ -4,7 +4,6 @@ namespace WhatsMyIp;
 
 use Encase\Container;
 use Arrow\AssetManager\AssetManager;
-use Arrow\PluginMeta;
 
 class Plugin {
 
