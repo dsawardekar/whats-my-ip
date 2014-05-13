@@ -13,7 +13,9 @@
   };
 
   DivLocator.prototype.locate = function() {
-    var foundDivs = $(this.getSelector());
+    var foundDivs = $(this.getSelector('div'));
+    foundDivs.push.apply(foundDivs, $(this.getSelector('span')));
+
     var total     = foundDivs.length;
     var divs      = [];
     var opts, foundDiv;
@@ -29,8 +31,8 @@
     return divs;
   };
 
-  DivLocator.prototype.getSelector = function() {
-    return 'div[class="' + this.className + '"]';
+  DivLocator.prototype.getSelector = function(wrapper) {
+    return wrapper + '[class="' + this.className + '"]';
   };
 
   DivLocator.prototype.optionsFor = function(div) {
