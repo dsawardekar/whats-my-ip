@@ -16,8 +16,13 @@ class ScriptPlacer {
       return;
     }
 
-    $this->scriptLoader->stream('whats-my-ip', array('jquery'));
-    $this->scriptLoader->stream('whats-my-ip-options', array('whats-my-ip'));
+    $this->scriptLoader->stream(
+      'whats-my-ip', array('dependencies' => 'jquery')
+    );
+
+    $this->scriptLoader->stream(
+      'whats-my-ip-options', array('dependencies' => 'whats-my-ip')
+    );
 
     $this->enabled = true;
   }
