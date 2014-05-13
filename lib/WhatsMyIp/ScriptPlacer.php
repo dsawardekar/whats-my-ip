@@ -17,11 +17,11 @@ class ScriptPlacer {
     }
 
     $this->scriptLoader->stream(
-      'whats-my-ip', array('dependencies' => 'jquery')
+      'whats-my-ip', array('dependencies' => array('jquery'))
     );
 
     $this->scriptLoader->stream(
-      'whats-my-ip-options', array('dependencies' => 'whats-my-ip')
+      'whats-my-ip-options', array('dependencies' => array('whats-my-ip'))
     );
 
     $this->enabled = true;
