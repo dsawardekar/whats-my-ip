@@ -26,7 +26,7 @@ function whats_my_ip_register() {
   require_once(__DIR__ . '/vendor/dsawardekar/arrow/lib/Arrow/ArrowPluginLoader.php');
 
   $loader = ArrowPluginLoader::getInstance();
-  $loader->register('whats-my-ip', '0.3.0', 'whats_my_ip_load');
+  $loader->register('whats-my-ip', '0.4.0', 'whats_my_ip_load');
 }
 
 function whats_my_ip_load() {

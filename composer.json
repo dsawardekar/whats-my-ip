@@ -4,7 +4,7 @@
   },
   "require": {
     "dsawardekar/encase-php": "~0.1.0",
-    "dsawardekar/arrow": "~0.3.0",
+    "dsawardekar/arrow": "~0.4.0",
     "dsawardekar/wp-requirements": "~0.3.0"
   },
   "autoload": {
