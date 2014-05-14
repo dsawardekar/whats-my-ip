@@ -2,7 +2,7 @@
 /*
 Plugin Name: whats-my-ip
 Description: Display User's IP address via Widget or Shortcode
-Version: 0.2.0
+Version: 0.2.2
 Author: Darshan Sawardekar
 Author URI: http://pressing-matters.io/
 Plugin URI: http://wordpress.org/plugins/whats-my-ip
