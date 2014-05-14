@@ -1,15 +1,16 @@
 <?php
 
-namespace PressingMatters;
+namespace WhatsMyIp;
 
-class WhatsMyIpShortcode {
+class Shortcode {
 
   public $twigHelper;
 
   public $defaults = array(
     'country' => false,
     'coords' => false,
-    'ip' => true
+    'ip' => true,
+    'mode' => 'inline'
   );
 
   function needs() {
@@ -25,6 +26,12 @@ class WhatsMyIpShortcode {
 
   function parse($params) {
     $items = shortcode_atts($this->defaults, $params);
+
+    if ($items['mode'] == 'inline') {
+      $items['wrapper'] = 'span';
+    } else {
+      $items['wrapper'] = 'div';
+    }
 
     $this->toBoolean($items, 'ip');
     $this->toBoolean($items, 'country');

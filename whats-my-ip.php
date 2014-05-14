@@ -2,16 +2,38 @@
 /*
 Plugin Name: whats-my-ip
 Description: Display User's IP address via Widget or Shortcode
-Version: 0.1.8
+Version: 0.2.0
 Author: Darshan Sawardekar
 Author URI: http://pressing-matters.io/
 Plugin URI: http://wordpress.org/plugins/whats-my-ip
 License: GPLv2
 */
 
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/vendor/dsawardekar/wp-requirements/lib/Requirements.php');
 
-use PressingMatters\WhatsMyIpPlugin;
+function whats_my_ip_main() {
+  $requirements = new WP_Requirements();
 
-$whats_my_ip_plugin = WhatsMyIpPlugin::create(__FILE__);
-$whats_my_ip_plugin->enable();
+  if ($requirements->satisfied()) {
+    whats_my_ip_register();
+  } else {
+    $plugin = new WP_Faux_Plugin('Whats My IP', $requirements->getResults());
+    $plugin->activate(__FILE__);
+  }
+}
+
+function whats_my_ip_register() {
+  require_once(__DIR__ . '/vendor/dsawardekar/arrow/lib/Arrow/ArrowPluginLoader.php');
+
+  $loader = ArrowPluginLoader::getInstance();
+  $loader->register('whats-my-ip', '0.4.0', 'whats_my_ip_load');
+}
+
+function whats_my_ip_load() {
+  require_once(__DIR__ . '/vendor/autoload.php');
+
+  $plugin = \WhatsMyIp\Plugin::create(__FILE__);
+  $plugin->enable();
+}
+
+whats_my_ip_main();

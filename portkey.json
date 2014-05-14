@@ -1,10 +1,10 @@
 {
-  "lib/PressingMatters/*.php": {
+  "lib/WhatsMyIp/*.php": {
     "type": "library",
-    "test": "test/PressingMatters/%sTest.php"
+    "test": "test/WhatsMyIp/%sTest.php"
   },
-  "test/PressingMatters/*Test.php": {
+  "test/WhatsMyIp/*Test.php": {
     "type": "test",
-    "alternate": "lib/PressingMatters/%s.php"
+    "alternate": "lib/WhatsMyIp/%s.php"
   }
 }

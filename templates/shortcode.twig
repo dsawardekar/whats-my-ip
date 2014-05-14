@@ -1,13 +1,13 @@
-<div class="whats-my-ip">
+<{{ wrapper }} class="whats-my-ip">
   {% if ip %}
-    <p class="ip"></p>
+    <{{ wrapper }} class="ip"></{{ wrapper }}>
   {% endif %}
 
   {% if country %}
-    <p class="country"></p>
+    <{{ wrapper }} class="country"></{{ wrapper }}>
   {% endif %}
 
   {% if coords %}
-    <p class="coords"></p>
+    <{{ wrapper }} class="coords"></{{ wrapper }}>
   {% endif %}
-</div>
+</{{ wrapper }}>
