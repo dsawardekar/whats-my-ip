@@ -4,6 +4,6 @@ namespace WhatsMyIp;
 
 class Version {
 
-  static $version = '0.2.2';
+  static $version = '0.3.0';
 
 }
