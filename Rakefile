@@ -1,7 +1,7 @@
 require 'ostruct'
 require 'erb'
 
-plugin_slug = "wp-scroll-up"
+plugin_slug = "whats-my-ip"
 version     = ENV['VERSION']
 destination = "tmp/dist/#{version}"
 
