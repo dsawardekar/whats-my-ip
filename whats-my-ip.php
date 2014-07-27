@@ -13,9 +13,8 @@ require_once(__DIR__ . '/vendor/dsawardekar/arrow/lib/Arrow/ArrowPluginLoader.ph
 
 function whats_my_ip_main() {
   $options = array(
-    'name'         => 'Whats My IP',
     'plugin'       => 'WhatsMyIp\Plugin',
-    'arrowVersion' => '0.6.0'
+    'arrowVersion' => '1.6.0'
   );
 
   ArrowPluginLoader::load(__FILE__, $options);

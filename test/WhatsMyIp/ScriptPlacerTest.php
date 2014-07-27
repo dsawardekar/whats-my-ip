@@ -3,8 +3,6 @@
 namespace WhatsMyIp;
 
 use Encase\Container;
-use Arrow\AssetManager\AssetManager;
-use Arrow\PluginMeta;
 
 class ScriptPlacerTest extends \PHPUnit_Framework_TestCase {
 
@@ -13,8 +11,8 @@ class ScriptPlacerTest extends \PHPUnit_Framework_TestCase {
 
   function setUp() {
     $this->container = new Container();
-    $this->container->object('pluginMeta', new PluginMeta('foo.php'));
-    $this->container->object('assetManager', new AssetManager($this->container));
+    $this->container->object('pluginMeta', new \WhatsMyIp\PluginMeta('foo.php'));
+    $this->container->packager('assetPackager', 'Arrow\Asset\Packager');
     $this->container->singleton('scriptPlacer', 'WhatsMyIp\ScriptPlacer');
 
     $this->placer = $this->container->lookup('scriptPlacer');

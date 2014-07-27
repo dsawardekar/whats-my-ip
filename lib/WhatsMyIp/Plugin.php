@@ -9,16 +9,11 @@ class Plugin extends \Arrow\Plugin {
   function __construct($file) {
     parent::__construct($file);
     $this->container
-      ->object('pluginMeta', new PluginMeta($file))
-      ->object('assetManager', new AssetManager($this->container))
-      ->singleton('shortcode', 'WhatsMyIp\Shortcode')
-      ->singleton('twigHelper', 'Arrow\TwigHelper\TwigHelper')
-      ->singleton('scriptPlacer', 'WhatsMyIp\ScriptPlacer')
-      ->initializer('twigHelper', array($this, 'initializeTwig'));
-  }
-
-  function initializeTwig($twigHelper, $container) {
-    $twigHelper->setBaseDir($container->lookup('pluginMeta')->getDir());
+      ->object('pluginMeta'      , new PluginMeta($file))
+      ->packager('assetPackager' , 'Arrow\Asset\Packager')
+      ->packager('twigPackager'  , 'Arrow\Twig\Packager')
+      ->singleton('shortcode'    , 'WhatsMyIp\Shortcode')
+      ->singleton('scriptPlacer' , 'WhatsMyIp\ScriptPlacer');
   }
 
   function enable() {

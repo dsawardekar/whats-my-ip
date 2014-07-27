@@ -4,7 +4,7 @@ namespace WhatsMyIp;
 
 class Widget extends \WP_Widget {
 
-  public $twigHelper;
+  public $templateRenderer;
   public $defaults = array(
     'ip' => true,
     'country' => false,
@@ -13,7 +13,7 @@ class Widget extends \WP_Widget {
   );
 
   function needs() {
-    return array('twigHelper');
+    return array('templateRenderer');
   }
 
   function __construct() {
@@ -90,16 +90,17 @@ class Widget extends \WP_Widget {
   }
 
   function renderTemplate($template, &$context) {
-    $helper = $this->getTwigHelper();
+    $template = $template . '.twig';
+    $helper   = $this->getTemplateRenderer();
     $helper->display($template, $context);
   }
 
-  function getTwigHelper() {
-    if (is_null($this->twigHelper)) {
+  function getTemplateRenderer() {
+    if (is_null($this->templateRenderer)) {
       $this->inject();
     }
 
-    return $this->twigHelper;
+    return $this->templateRenderer;
   }
 
   function getContainer() {

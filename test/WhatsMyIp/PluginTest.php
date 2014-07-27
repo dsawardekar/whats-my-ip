@@ -16,9 +16,9 @@ class PluginTest extends \PHPUnit_Framework_TestCase {
     $this->assertInstanceOf('Encase\Container', $container);
   }
 
-  function test_it_has_a_twig_helper() {
-    $helper = $this->plugin->lookup('twigHelper');
-    $this->assertInstanceOf('Arrow\TwigHelper\TwigHelper', $helper);
+  function test_it_has_a_template_renderer() {
+    $helper = $this->plugin->lookup('templateRenderer');
+    $this->assertInstanceOf('Arrow\Twig\Renderer', $helper);
   }
 
   function test_it_has_a_shortcode() {
