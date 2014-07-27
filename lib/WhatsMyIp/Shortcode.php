@@ -4,7 +4,7 @@ namespace WhatsMyIp;
 
 class Shortcode {
 
-  public $twigHelper;
+  public $templateRenderer;
 
   public $defaults = array(
     'country' => false,
@@ -14,14 +14,14 @@ class Shortcode {
   );
 
   function needs() {
-    return array('twigHelper');
+    return array('templateRenderer');
   }
 
   function render($params) {
     $context  = $this->parse($params);
     $template = $this->getTemplate();
 
-    return $this->twigHelper->render($template, $context);
+    return $this->templateRenderer->render($template, $context);
   }
 
   function parse($params) {
@@ -47,6 +47,6 @@ class Shortcode {
   }
 
   function getTemplate() {
-    return 'shortcode';
+    return 'shortcode.twig';
   }
 }

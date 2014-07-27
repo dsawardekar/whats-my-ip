@@ -3,29 +3,27 @@
 namespace WhatsMyIp;
 
 use Encase\Container;
-use Arrow\TwigHelper\TwigHelper;
 
 class ShortcodeTest extends \PHPUnit_Framework_TestCase {
 
   public $shortcode;
   public $container;
-  public $twigHelper;
+  public $templateRenderer;
 
   function setUp() {
     $container = new Container();
-    $container->singleton('twigHelper', 'Arrow\TwigHelper\TwigHelper');
+    $container->object('pluginMeta', new \WhatsMyIp\PluginMeta('whats-my-ip.php'));
+    $container->packager('twigPackager', 'Arrow\Twig\Packager');
     $container->singleton('shortcode', 'WhatsMyIp\Shortcode');
 
     $this->container  = $container;
     $this->shortcode  = $container->lookup('shortcode');
-    $this->twigHelper = $container->lookup('twigHelper');
-
-    $this->twigHelper->setBaseDir(getcwd());
+    $this->templateRenderer = $container->lookup('templateRenderer');
   }
 
-  function test_it_has_a_twig_helper() {
-    $helper = $this->shortcode->twigHelper;
-    $this->assertInstanceOf('Arrow\TwigHelper\TwigHelper', $helper);
+  function test_it_has_a_template_renderer() {
+    $helper = $this->shortcode->templateRenderer;
+    $this->assertInstanceOf('Arrow\Twig\Renderer', $helper);
   }
 
   function test_it_can_convert_string_key_to_boolean() {

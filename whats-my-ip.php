@@ -2,7 +2,7 @@
 /*
 Plugin Name: whats-my-ip
 Description: Display User's IP address via Widget or Shortcode
-Version: 0.4.0
+Version: 0.5.0
 Author: Darshan Sawardekar
 Author URI: http://pressing-matters.io/
 Plugin URI: http://wordpress.org/plugins/whats-my-ip
@@ -13,9 +13,8 @@ require_once(__DIR__ . '/vendor/dsawardekar/arrow/lib/Arrow/ArrowPluginLoader.ph
 
 function whats_my_ip_main() {
   $options = array(
-    'name'         => 'Whats My IP',
     'plugin'       => 'WhatsMyIp\Plugin',
-    'arrowVersion' => '0.6.0'
+    'arrowVersion' => '1.6.0'
   );
 
   ArrowPluginLoader::load(__FILE__, $options);
